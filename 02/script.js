@@ -48,7 +48,7 @@ console.log(a, b, c)
      }
 
 
-     alert(
+     const result = alert(
           `У Фаренгейтах ${fahrenheit}; У Цельсіях ${celsius}`)
 }
 
