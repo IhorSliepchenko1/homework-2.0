@@ -172,30 +172,33 @@
 {
      // Find the Longest Consecutive Sequence
      function findLongestConsecutive(arr) {
-          const uniqueArr = new Set(arr);
-          return [...uniqueArr];
+          const arrCase = []
+
+          for (let i = 0; i <= arr.length; i++) {
+               if (arr[i] === i + 1) {
+                    arrCase.push(arr[i])
+               }
+          }
+
+          return arrCase
      }
 
-     const numbers = [1, 2, 3, 4, 5, 2, 3, 4, 5];
+     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 2, 3, 4, 5];
      const longestConsecutive = findLongestConsecutive(numbers);
      console.log(longestConsecutive);
      // [1, 2, 3, 4, 5]
 }
+{
+     // Pyramid
 
+     const printPyramid = (n) => {
+          for (let i = 1; i <= n; i++) {
+               const lattice = '#'.repeat(n - i);
+               const stars = '*'.repeat(2 * i - 1);
+               console.log(lattice + stars + lattice);
+          }
+     };
 
+     printPyramid(5)
+}
 
-
-// Pyramid
-
-const printPyramid = (n) => {
-     for (let i = 1; i <= n; i++) {
-          const lattice = '#'.repeat(n - i);
-          const stars = '*'.repeat(2 * i - 1);
-          console.log(lattice + stars + lattice);
-     }
-};
-
-printPyramid(5)
-
-
-printPyrami
