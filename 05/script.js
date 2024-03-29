@@ -174,16 +174,18 @@
      function findLongestConsecutive(arr) {
           const arrCase = []
 
+
           for (let i = 0; i <= arr.length; i++) {
-               if (arr[i] === i + 1) {
+               if (arr[i] >= 1) {
                     arrCase.push(arr[i])
+
                }
           }
 
           return arrCase
      }
 
-     const numbers = [1, 2, 3, 4, 5, 2, 3, 4, 5];
+     const numbers = [ 1, 2, 3, 4, 5, 2, 3, 4, 5];
      const longestConsecutive = findLongestConsecutive(numbers);
      console.log(longestConsecutive);
      // [1, 2, 3, 4, 5]
