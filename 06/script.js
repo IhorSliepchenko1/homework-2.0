@@ -104,20 +104,21 @@ console.log(catCopy);
 
      // Destructure
 
-     const spanTxt = obj.children[0].children[0].children[0];
-     console.log(spanTxt);
+     const { children: [{ children: [{ children: [text] }] }] } = obj
 
-     const secondButtonValue = obj.children[1].children[1].children[0];
-     console.log(secondButtonValue);
+     console.log(text);
 
-     const secondInputId = obj.children[0].children[3].attrs.id;
-     console.log(secondInputId);
 
+     const { children: [, { children: [, { children: [cancel] }] }] } = obj
+     console.log(cancel);
+
+     const { children: [{ children: [, , , { attrs: { id: [name] } }] }] } = obj
+     console.log(name);
 }
 
 {
      // Destruct array
-     let arr = [1, 2, 3, 4, 5, "a", "b", "c"]
+     const arr = [1, 2, 3, 4, 5, "a", "b", "c"]
      const [odd1, even1, odd2, even2, odd3, ...letters] = arr
 
      console.log("Odd:", odd1, odd2, odd3);
@@ -127,8 +128,8 @@ console.log(catCopy);
 
 {
      // Destruct string
-     let arr = [1, "abc"]
-     let [number, [s1, s2, s3]] = arr;
+     const arr = [1, "abc"]
+     const [number, [s1, s2, s3]] = arr;
      console.log(number);
      console.log(s1, s2, s3);
 
@@ -136,7 +137,7 @@ console.log(catCopy);
 
 {
      // Destruct 2
-     let obj = {
+     const obj = {
           name: 'Ivan',
           surname: 'Petrov',
           children: [{ name: 'Maria' }, { name: 'Nikolay' }]
@@ -150,7 +151,7 @@ console.log(catCopy);
 {
      // Destruct 3
 
-     let arr = [1, 2, 3, 4, 5, 6, 7, 10];
+     const arr = [1, 2, 3, 4, 5, 6, 7, 10];
      const { 0: a, 1: b, length } = arr;
      console.log(a, b, length)
 
@@ -158,7 +159,7 @@ console.log(catCopy);
 
 {
      // Copy delete
-     let dellKey = prompt('введіть ключ для видалення: age/color/name');
+     const dellKey = prompt('введіть ключ для видалення: age/color/name');
      const { [dellKey]: _, ...rest } = cat;
      console.log(rest);
 }
@@ -169,14 +170,25 @@ console.log(catCopy);
      fetch('https://open.er-api.com/v6/latest/USD')
           .then(res => res.json())
           .then(data => {
-               let inputCurrency = prompt('введіть вхідну валюту');
-               let currencyConversion = prompt('введіть валюту, в яку відбувається конвертація');
-               let sumInputCurrency = prompt('введіть суму у вхідній валюті');
 
-               const result = (parseFloat(data.rates[currencyConversion]) / parseFloat(data.rates[inputCurrency])) * parseFloat(sumInputCurrency);
+               const inputCurrency = prompt('введіть вхідну валюту').toUpperCase();
+               const currencyConversion = prompt('введіть валюту, в яку відбувається конвертація').toUpperCase();
+               const sumInputCurrency = +prompt('введіть суму у вхідній валюті');
 
-               console.log(`вхідна валюта: ${inputCurrency} ${(data.rates[inputCurrency]).toFixed(2)} / сумма ${sumInputCurrency}; валюта для конвертації: ${currencyConversion} ${(data.rates[currencyConversion]).toFixed(2)}/ сумма ${result.toFixed(2)}`);
-          });
+               const conversion = (parseFloat(data.rates[currencyConversion]) / parseFloat(data.rates[inputCurrency])) * parseFloat(sumInputCurrency);
+               const input = parseFloat(data.rates[inputCurrency]);
+               const sum = parseFloat(sumInputCurrency)
+
+               if (input && conversion && !isNaN(sum)) {
+                    const result = conversion / input * sum
+                    console.log(`вхідна валюта: ${inputCurrency} ${input.toFixed(2)} / сумма ${sumInputCurrency}; валюта для конвертації: ${currencyConversion} ${conversion.toFixed(2)}/ сумма ${result.toFixed(2)}`);
+               }
+               else {
+                    console.log('Введіть коректні дані');
+               }
+
+
+          })
 }
 
 {
@@ -317,7 +329,7 @@ console.log(catCopy);
           },
      ]
 
-     let keySlot = []
+     const keySlot = []
      for (let i = 0; i < data.length; i++) {
           const keys = Object.keys(data[i]);
           keys.forEach(key => {
