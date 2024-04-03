@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>06</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculator</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>вхідна валюта</th>
+            <th>конвертуємо у</th>
+            <th>Сумма</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody">
+          <tr>
+            <td>
+              <select id="from" style="width: 100%; text-align: center;">
+                <option value="">Оберіть валюту</option>
+              </select>
+            </td>
+            <td>
+              <select id="to" style="width: 100%; text-align: center;">
+                <option value="">Оберіть валюту</option>
+              </select>
+            </td>
+            <td>
+              <input type="number" readonly placeholder="сума" id="sum" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button id="convert">конвертувати</button>
+    </div>
+    <section id="table-currency"></section>
+    <div id="formContainer"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
