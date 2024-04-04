@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  gap: 15px;
+  width: 400px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(22, 198, 104, 0.649);
+  margin-inline: auto;
+}
+
+button {
+  cursor: pointer;
+  display: flex;
+  margin-inline: auto;
+}
+
+input {
+  text-align: center;
+  outline: 0;
+}
+
+.slot {
+  display: flex;
+  gap: 26px;
+}
+
+.slot_flats {
+  display: grid;
+  gap: 15px;
+}
+
+.label-slot {
+  display: flex;
+  justify-content: space-between;
+  input {
+    margin-left: 5px;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+#formContainer {
+  max-width: 300px;
+}
