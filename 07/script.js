@@ -192,8 +192,53 @@ const sortArr = (array, property, bool = true) => {
 console.log(sortArr(persons, 'age'));
 console.log(sortArr(persons, 'name', false));
 /* Table */
-
+const personsObj = [
+     {
+          name: 'Марія',
+          fatherName: 'Іванівна',
+          surname: 'Іванова',
+          sex: 'female'
+     },
+     {
+          name: 'Миколай',
+          fatherName: 'Іванович',
+          surname: 'Іванов',
+          age: 15
+     },
+     {
+          name: 'Петро',
+          fatherName: 'Іванович',
+          surname: 'Іванов',
+          married: true
+     },
+]
+console.log(sortArr(personsObj, 'name', false));
 /* Divide */
-
+const calcResult = () => {
+     console.log(firstNumber.value, secondNumber.value, divisionResult.innerHTML)
+     divisionResult.innerHTML = "Текст у <code>div</code> змінено за допомогою <strong>Javascript</strong><br/>" + Math.random().toFixed(2)
+}
+firstNumber.oninput = secondNumber.oninput = calcResult
 /* Calc Func */
+const calcFunk = (first, second, third, fourth) => {
+     const total = first + second + third + fourth;
+     const data = `Квартальні виплати: ${total} $ Середня з/п: ${total / 4} $`
 
+     return data
+}
+
+/* Calc Live */
+
+const calcLive = () => {
+
+     const innerValue = () => {
+          result.innerHTML =
+               `<div>${calcFunk(first.value, second.value, third.value, fourth.value)}</div>`;
+     };
+
+     const arrInput = [first, second, third, fourth]
+     arrInput.map((item) => item.oninput = innerValue)
+     innerValue();
+}
+
+calcLive();

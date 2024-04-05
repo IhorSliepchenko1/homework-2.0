@@ -45,3 +45,38 @@ input {
 #formContainer {
   max-width: 300px;
 }
+
+.slot {
+  display: grid;
+  justify-content: center;
+  border: 1px solid;
+  max-width: 200px;
+  padding: 5px;
+  margin-inline: auto;
+}
+
+#divisionResult {
+  border: 1px solid;
+  text-align: center;
+}
+
+.live {
+  display: grid;
+  justify-content: center;
+  margin-top: 30px;
+  border: 1px solid;
+  padding: 6px;
+  max-width: 200px;
+  gap: 10px;
+}
+
+.love-slot {
+  border: 1px solid;
+  max-width: 200px;
+}
+
+.result {
+  text-align: center;
+  background: rgb(0, 0, 0);
+  color: white;
+}
