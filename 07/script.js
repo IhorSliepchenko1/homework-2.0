@@ -230,7 +230,6 @@ const calcFunk = (first, second, third, fourth) => {
 /* Calc Live */
 
 const calcLive = () => {
-
      const innerValue = () => {
           result.innerHTML =
                `<div>${calcFunk(first.value, second.value, third.value, fourth.value)}</div>`;
