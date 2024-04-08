@@ -30,7 +30,8 @@ tr {
   height: 10px;
 }
 
-#create {
+#create,
+#add {
   cursor: pointer;
   background-color: aquamarine;
   border: 1px solid teal;
@@ -38,7 +39,8 @@ tr {
   transition: 0.2s ease-in-out;
   margin-bottom: 20px;
 }
-#create:hover {
+#create:hover,
+#add:hover {
   background-color: rgb(73, 243, 186);
 }
 
@@ -58,4 +60,13 @@ tr {
 
 #inputCreateTable::placeholder {
   text-align: center;
+}
+
+.slot-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  margin-inline: auto;
 }
