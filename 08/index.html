@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>08</title>
+  </head>
+  <body>
+    <div id="containerDiv"></div>
+    <div id="total"></div>
+    <h5>closure calc 2</h5>
+
+    <div class="container-converter">
+      <select name="from" id="from"></select>
+      <div id="rate"></div>
+      <select name="to" id="to" onchange="rateFunc()"></select>
+      <input type="number" id="amount" oninput="inputFunc()" />
+      <div id="result"></div>
+    </div>
+
+    <div class="country" id="list-country">
+      <select name="countries" id="countries" onchange="cityRender()"></select>
+      <select name="cities" id="cities"></select>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
