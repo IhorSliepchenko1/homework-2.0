@@ -121,64 +121,47 @@ console.log(arr);
 
 {
      const n = +prompt()
-     const tableArr = []
+
+
+     const tableContainer = document.getElementById("table");
+     const table = document.createElement("table");
+     table.style.border = "1px solid black";
+
      for (let i = 0; i <= n; i++) {
-          tableArr[i] = []
+          const tr = document.createElement("tr");
 
           for (let j = 0; j <= n; j++) {
-               tableArr[i][j] = j * i
+               const cell = document.createElement("td");
+               cell.style.border = "1px solid black";
+               cell.style.padding = "10px";
+               cell.innerText = i === 0 || j === 0 ? j || i : j * i;
+
+               const highlightCells = (cellColor = "", rowColor = "") => {
+                    for (const td of tr.childNodes) {
+                         td.style.backgroundColor = rowColor;
+                    }
+                    for (const tableRow of table.childNodes) {
+                         const td = tableRow.childNodes[j];
+                         td.style.backgroundColor = rowColor;
+                    }
+                    cell.style.backgroundColor = cellColor;
+               };
+
+               cell.addEventListener("mouseover", () => {
+                    highlightCells("red", "green");
+               });
+
+               cell.addEventListener("mouseout", () => {
+                    highlightCells();
+               });
+
+               tr.append(cell);
           }
 
-          tableArr[i][0] = i
-
-          for (let k = 0; k <= n; k++) {
-               tableArr[0][k] = k
-          }
+          table.append(tr);
      }
 
-     console.log(tableArr);
-     // DOM: multiply table
-
-
-     const render = (arrTable) => {
-          const bodyTable = document.getElementById('bodyTable')
-          for (let i = 0; i < arrTable.length; i++) {
-               const tr = document.createElement('tr')
-               bodyTable.append(tr)
-
-               tr.addEventListener('mouseover', () => {
-                    tr.style.background = 'red'
-
-               })
-               tr.addEventListener('mouseout', () => tr.style.background = '')
-
-               for (let k = 0; k < arrTable.length; k++) {
-                    const td = document.createElement('td')
-                    tr.append(td)
-
-                    tr.addEventListener('mouseover', () => {
-                         let columnCells = document.querySelectorAll(`td:nth-child(${i + 1})`);
-                         columnCells.forEach((item) => {
-                              item.style.backgroundColor = 'blue';
-                         });
-                    });
-
-                    tr.addEventListener('mouseout', () => {
-                         let columnCells = document.querySelectorAll(`td:nth-child(${i + 1})`);
-                         columnCells.forEach((item) => {
-                              item.style.backgroundColor = '';
-                         });
-                    });
-
-                    // DOM: highlight cell
-                    td.addEventListener('mouseover', () => td.style.background = 'green')
-                    td.addEventListener('mouseout', () => td.style.background = '')
-                    td.innerText = arrTable[i][k]
-               }
-          }
-     }
-
-     render(tableArr)
+     tableContainer.append(table);
 }
 // read array of objects
 
@@ -202,7 +185,7 @@ while (true) {
 
 console.log(arrObj);
 
-// Ромбік
+Ромбік
 
 {
      let n = +prompt()
