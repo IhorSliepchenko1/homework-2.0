@@ -1,0 +1,12 @@
+#inputContainer {
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+}
+
+#dynamicForm{
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
