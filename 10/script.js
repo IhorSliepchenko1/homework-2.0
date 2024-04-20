@@ -295,7 +295,7 @@ const inputContainer = document.getElementById('inputContainer');
 personForm(inputContainer, b);
 
 
-function getSetForm(parent, getSet) {
+const getSetForm = (parent, getSet) => {
      const inputs = {};
 
      const form = document.createElement('form');
@@ -315,11 +315,9 @@ function getSetForm(parent, getSet) {
           const setKey = `set${fieldName}`;
           const getKey = `get${fieldName}`;
 
-          // Create input element only if it doesn't exist in the registry
           if (!inputs[fieldName]) {
                const input = document.createElement('input');
                input.setAttribute('type', 'text');
-               input.setAttribute('placeholder', fieldName);
                input.value = getSet[getKey]();
 
                if (getOrSet === 'set') {
