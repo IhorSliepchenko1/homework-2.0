@@ -18,30 +18,30 @@ function createPerson(name, surname) {
 // createPersonClosure
 
 
+// createPersonClosure
 const createPersonClosure = (name, surname) => {
-     let age;
      let fatherName;
+     let age;
 
-     function checkText(char) {
+     function checkText(char = "") {
           return !!char.match(/[A-ZА-Я]/);
      }
 
      function getName() {
-          return name
+          return name;
      }
      function getSurname() {
-          return surname
+          return surname;
      }
      function getFatherName() {
-          return fatherName
+          return fatherName;
      }
      function getAge() {
-          return age
+          return age;
      }
      function getFullName() {
-          return `${surname} ${name} ${fatherName}`
+          return `${surname || ""} ${name || ""} ${fatherName || ""}`;
      }
-
      function setName(newName) {
           if (checkText(newName[0])) {
                name = newName;
@@ -63,13 +63,12 @@ const createPersonClosure = (name, surname) => {
      function setAge(newAge) {
           if (newAge >= 0 && newAge <= 100) {
                age = newAge;
-          } else {
-               alert('введіть вік від 0-100')
           }
           return age;
      }
      function setFullName(newFullName) {
-          const [newSurname, newName, newFatherName] = newFullName.split(" ");
+          const [newSurname = "", newName = "", newFatherName = ""] =
+               newFullName.split(" ");
 
           if (checkText(newSurname[0])) {
                surname = newSurname;
@@ -94,50 +93,46 @@ const createPersonClosure = (name, surname) => {
           setFatherName,
           setAge,
           setFullName,
-     }
-}
+     };
+};
 
-// const a = createPersonClosure("Вася", "Пупкін")
-// const b = createPersonClosure("Ганна", "Іванова")
-// a.getFatherName = () => 'Петрович'
-// console.log(a.getFatherName());
-// console.log(a.getName())
-// console.log(a.setAge(15));
-// console.log(a.setAge(150));//не працює
+const a = createPersonClosure("Вася", "Пупкін");
+const b1 = createPersonClosure("Ганна", "Іванова");
+a.setName("Taras");
+console.log(a.getName());
+a.setAge(15);
+a.setAge(150); //не працює
 
-// b.setFullName("Петрова Ганна Миколаївна")
-// console.log(b.getFatherName()) //Миколаївна
+b1.setFullName("Петрова Ганна Миколаївна");
+console.log(b1.getFatherName()); //Миколаївна
 
-// createPersonClosureDestruct
 
 const createPersonClosureDestruct = ({ name = 'іван', surname = 'Іванов', fatherName = 'Іванович', age = 0 }) => {
-     function checkText(char) {
+     function checkText(char = "") {
           return !!char.match(/[A-ZА-Я]/);
      }
 
      function getName() {
-          return name
+          return name;
      }
      function getSurname() {
-          return surname
+          return surname;
      }
      function getFatherName() {
-          return fatherName
+          return fatherName;
      }
      function getAge() {
-          return age
+          return age;
      }
      function getFullName() {
-          return `${surname} ${name} ${fatherName}`
+          return `${surname || ""} ${name || ""} ${fatherName || ""}`;
      }
-
      function setName(newName) {
           if (checkText(newName[0])) {
                name = newName;
           }
           return name;
      }
-
      function setSurname(newName) {
           if (checkText(newName[0])) {
                surname = newName;
@@ -153,13 +148,12 @@ const createPersonClosureDestruct = ({ name = 'іван', surname = 'Івано�
      function setAge(newAge) {
           if (newAge >= 0 && newAge <= 100) {
                age = newAge;
-          } else {
-               alert('введіть вік від 0-100')
           }
           return age;
      }
      function setFullName(newFullName) {
-          const [newSurname, newName, newFatherName] = newFullName.split(" ");
+          const [newSurname = "", newName = "", newFatherName = ""] =
+               newFullName.split(" ");
 
           if (checkText(newSurname[0])) {
                surname = newSurname;
@@ -184,7 +178,7 @@ const createPersonClosureDestruct = ({ name = 'іван', surname = 'Івано�
           setFatherName,
           setAge,
           setFullName,
-     }
+     };
 }
 
 
@@ -193,65 +187,65 @@ const createPersonClosureDestruct = ({ name = 'іван', surname = 'Івано�
 
 // isSorted
 
-// const isSorted = (arr) => {
+const isSorted = (arr) => {
 
-//      if (arr.length === 0) {
-//           return true;
-//      }
+     if (arr.length === 0) {
+          return true;
+     }
 
-//      for (let i = 0; i < arr.length; i++) {
-//           if (typeof arr[i] !== 'number') {
-//                return false;
-//           }
-//      }
-//      let index = 0
+     for (let i = 0; i < arr.length; i++) {
+          if (typeof arr[i] !== 'number') {
+               return false;
+          }
+     }
+     let index = 0
 
-//      for (let j = 1; j < arr.length; j++) {
-//           if (arr[j] <= arr[index]) {
-//                return false;
-//           }
-//           index++;
-//      }
+     for (let j = 1; j < arr.length; j++) {
+          if (arr[j] <= arr[index]) {
+               return false;
+          }
+          index++;
+     }
 
-//      return true;
-// }
+     return true;
+}
 
 
-// // Test isSorted
+// Test isSorted
 
-// const isSortedTest = () => {
-//      const arr = []
+const isSortedTest = () => {
+     const arr = []
 
-//      while (true) {
-//           const arrVal = +prompt('введіть щось')
-//           arr.push(arrVal)
+     while (true) {
+          const arrVal = +prompt('введіть щось')
+          arr.push(arrVal)
 
-//           if (!confirm('продовжити?')) {
-//                break
-//           }
-//      }
+          if (!confirm('продовжити?')) {
+               break
+          }
+     }
 
-//      if (arr.length === 0) {
-//           return true;
-//      }
+     if (arr.length === 0) {
+          return true;
+     }
 
-//      for (let i = 0; i < arr.length; i++) {
-//           if (typeof arr[i] !== 'number') {
-//                return false;
-//           }
-//      }
-//      let index = 0
+     for (let i = 0; i < arr.length; i++) {
+          if (typeof arr[i] !== 'number') {
+               return false;
+          }
+     }
+     let index = 0
 
-//      for (let j = 1; j < arr.length; j++) {
-//           if (arr[j] <= arr[index]) {
-//                return false;
-//           }
-//           index++;
-//      }
+     for (let j = 1; j < arr.length; j++) {
+          if (arr[j] <= arr[index]) {
+               return false;
+          }
+          index++;
+     }
 
-//      console.log(arr);
-//      return true;
-// }
+     console.log(arr);
+     return true;
+}
 
 // personForm
 
@@ -295,92 +289,43 @@ const inputContainer = document.getElementById('inputContainer');
 personForm(inputContainer, b);
 
 
-const getSetForm = (parent, getSet) => {
+const getSetForm = (element, obj) => {
      const inputs = {};
 
-     const form = document.createElement('form');
-     form.setAttribute('id', 'dynamicForm');
-
-     const updateInputs = () => {
-          for (const prop in inputs) {
-               const getter = getSet[`get${prop}`];
-               inputs[prop].value = getter();
+     const updateValues = () => {
+          for (const key in inputs) {
+               const value = obj[`get${key}`]();
+               inputs[key].value = value ?? "";
           }
      };
 
-     for (const getSetName in getSet) {
-          const getOrSet = getSetName.substring(0, 3);
-          const fieldName = getSetName.substring(3);
+     for (const key in obj) {
+          const prop = key.slice(3);
 
-          const setKey = `set${fieldName}`;
-          const getKey = `get${fieldName}`;
+          if (!inputs[prop]) {
+               const input = document.createElement("input");
+               input.placeholder = prop;
+               input.name = prop;
+               input.disabled = !obj[`set${prop}`];
 
-          if (!inputs[fieldName]) {
-               const input = document.createElement('input');
-               input.setAttribute('type', 'text');
-               input.value = getSet[getKey]();
+               const value = obj[`get${prop}`]();
+               input.value = value ?? "";
 
-               if (getOrSet === 'set') {
-                    input.disabled = true;
-               }
+               const type = typeof value === "number" ? "number" : "text";
+               input.type = type;
 
-               input.oninput = () => {
-                    const setter = getSet[setKey];
-                    if (typeof setter === 'function') {
-                         setter(input.value);
-                         updateInputs();
-                    }
-               };
+               inputs[prop] = input;
+               element.append(input);
 
-               inputs[fieldName] = input;
-               form.appendChild(input);
+               input.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    const newValue = type === "number" ? +value : value;
+                    obj[`set${prop}`](newValue);
+                    updateValues();
+               });
           }
      }
+     console.log("🚀 ~ getSetForm ~ inputs==>>", inputs);
+};
 
-     parent.appendChild(form)
-     updateInputs();
-}
-
-
-
-let car;
-{
-     let brand = 'BMW',
-          model = 'X5',
-          volume = 2.4;
-     car = {
-          getBrand() {
-               return brand;
-          },
-          setBrand(newBrand) {
-               if (newBrand && typeof newBrand === 'string') {
-                    brand = newBrand;
-               }
-               return brand;
-          },
-          getModel() {
-               return model;
-          },
-          setModel(newModel) {
-               if (newModel && typeof newModel === 'string') {
-                    model = newModel;
-               }
-               return model;
-          },
-          getVolume() {
-               return volume;
-          },
-          setVolume(newVolume) {
-               newVolume = +newVolume;
-               if (newVolume && newVolume > 0 && newVolume < 20) {
-                    volume = newVolume;
-               }
-               return volume;
-          },
-          getTax() {
-               return volume * 100;
-          }
-     };
-}
-
-getSetForm(document.body, car);
+getSetForm(document.body, a);
