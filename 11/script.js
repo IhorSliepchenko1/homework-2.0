@@ -91,15 +91,15 @@ console.log(bindedJoiner('1', '2', '3') === '1b23ef');
 // checkResult
 
 function checkResult(original, validator) {
-     return function (...params) {
+     return function wrapper(...params) {
           const result = original(...params);
           if (validator(result)) {
                return result;
           } else {
-               console.log("Invalid input, please try again.");
                return checkResult(original, validator)(...params);
           }
      };
+
 }
 
 // original
