@@ -1,0 +1,28 @@
+table,
+thead,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  color: white;
+}
+
+table {
+  margin-inline: auto;
+}
+
+thead {
+  background: rgba(0, 36, 168, 0.653);
+  border-bottom: 2px solid rgb(255, 0, 170);
+}
+
+#table {
+  max-width: 500px;
+  overflow: scroll;
+}
+
