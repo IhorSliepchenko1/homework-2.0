@@ -5,7 +5,6 @@ localStorage.setItem(`basket`, JSON.stringify(basketData))
 localStorage.setItem(`store`, JSON.stringify(dataArr))
 
 const render = (data) => {
-     localStorage.setItem(`store`, JSON.stringify(dataArr))
      data.map((item, index) => {
           const card = document.createElement(`div`)
           card.className = `card`
