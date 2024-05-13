@@ -1,0 +1,259 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+body {
+  background-color: grey;
+}
+
+select,
+button,
+option,
+input {
+  outline: 0;
+  border: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 210px;
+  border: 1px solid;
+  padding: 10px;
+  background: white;
+}
+.img-slot {
+  width: 140px;
+  height: 170px;
+  margin-inline: auto;
+}
+.image {
+  width: 140px;
+  height: 170px;
+}
+.rating {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.desc {
+  font-size: 13px;
+  line-height: 1.2;
+}
+.btn {
+  padding: 4px;
+  width: 50%;
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background-color: rgb(58, 58, 248);
+}
+
+.price-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid;
+  padding-top: 5px;
+}
+
+.add-slot {
+  display: flex;
+  margin: 5px 0;
+  justify-content: space-between;
+}
+.plus {
+  background-color: green;
+  padding: 3px;
+  width: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  order: 3;
+}
+.input {
+  text-align: center;
+  width: 150px;
+  border: 1px solid;
+  order: 2;
+}
+.minus {
+  width: 20px;
+  background-color: red;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 3px;
+
+  order: 1;
+}
+
+.slot-rating {
+  display: flex;
+}
+
+.price-piece {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.price-piece > span {
+  font-size: 10px;
+  text-align: center;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  gap: 15px;
+  max-width: 800px;
+  margin-inline: auto;
+  position: relative;
+  top: 150px;
+}
+
+.title {
+  max-width: 200px;
+  min-height: 95px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  border-top: 1px solid;
+}
+.pay {
+  font-size: 20px;
+}
+.cash {
+  font-size: 20px;
+  background-color: green;
+  padding: 5px 10px;
+  opacity: 0.8;
+  width: 100px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+}
+
+.bold,
+.boldC {
+  font-weight: bold;
+}
+
+.slot-balance {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+.balace {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+#balance {
+  font-weight: bold;
+}
+
+#inpBalance {
+  border: 1px solid;
+  text-align: center;
+  padding: 3px 0;
+}
+
+#add_balance {
+  padding: 3px;
+  background-color: green;
+  color: wheat;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.basket {
+  width: 50px;
+}
+
+.summ {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#value {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.buy {
+  padding: 5px 20px;
+  background-color: greenyellow;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  transition: 0.2s ease-in-out;
+  width: 100%;
+}
+
+.buy:hover {
+  background-color: rgb(163, 238, 51);
+}
+
+.btn-bassket {
+  display: flex;
+  gap: 5px;
+}
+
+.imgSlot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cashBalance {
+  display: flex;
+  font-weight: bold;
+  font-size: 30px;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+}
