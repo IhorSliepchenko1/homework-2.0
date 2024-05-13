@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Money</title>
+  </head>
+  <body>
+    <div class="balace">
+      <div class="cashBalance">
+        <span>Store balance:</span>
+        <span id="cashBalance">0</span>
+      </div>
+
+      <div class="summ">
+        <div class="imgSlot">
+          <div class="basket">
+            <img
+              src="./assets/shopping_basket_24dp_FILL0_wght400_GRAD0_opsz24.png"
+            />
+          </div>
+          <div>
+            <span>Summ:</span>
+            <span id="value">0</span>
+          </div>
+        </div>
+        <div class="btn-bassket">
+          <button class="buy" id="buy">buy</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="slot-balance">
+          <span>Your balance:</span>
+          <div>
+            <span id="balance"></span>
+            <span>$</span>
+          </div>
+        </div>
+
+        <div>
+          <input type="number" id="inpBalance" placeholder="enter the amount" />
+          <button id="add_balance">add_balance</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper" id="wrapper"></div>
+    <script src="JS/data.js"></script>
+    <script src="JS/redux.js"></script>
+    <script src="JS/render.js"></script>
+    <script src="JS/interface.js"></script>
+  </body>
+</html>
